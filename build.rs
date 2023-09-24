@@ -61,7 +61,7 @@ fn main() {
         .define("BUILD_SHARED_LIBS", "FALSE")
         .cflag(format!(
             "-I{} -DPOINTER_MASK=0x7",
-            libatomic_include_path, foo
+            libatomic_include_path
         ))
         .build();
 
