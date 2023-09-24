@@ -23,7 +23,7 @@ fn main() {
 
     let dst = autotools::Config::new(LIB_GC_DIR)
         .cflag(format!(
-            "-I{} -L/lib/x86_64-linux-gnu -lpthread -fPIC -D POINTER_MASK=0x7ffffffffffffff",
+            "-I{} -L/lib/x86_64-linux-gnu -lpthread -fPIC -D POINTER_MASK=0xF800000000000000",
             dst.join("include").display()
         ))
         .build();
@@ -60,7 +60,7 @@ fn main() {
         .profile("Release")
         .define("BUILD_SHARED_LIBS", "FALSE")
         .cflag(format!(
-            "-I{} -DPOINTER_MASK=0x7ffffffffffffff",
+            "-I{} -DPOINTER_MASK=0xF800000000000000",
             libatomic_include_path
         ))
         .build();
